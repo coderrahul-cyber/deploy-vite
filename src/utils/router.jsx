@@ -13,7 +13,7 @@ import NotFound from "../pages/NotFound";
 import Trailer from "../components/Trailer";
 
 const router = createBrowserRouter([
-    {path : '/' , element: <Home/> },
+    {path : '/deploy-vite/' , element: <Home/> },
     {path:'/trending' , element : <Trending/>},
     {path:'/popular' , element : <Popular/>},
     {path:'/movies' , element : <Movies/> ,},
