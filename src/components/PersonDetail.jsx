@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncloadperson, removeperson } from '../store/actions/personAction'
 import { Link, Outlet, useLocation, useNavigate, useParams } from 'react-router-dom'
+import back from '../assets/gradient.svg'
 import { asset } from '../assets/assets'
 import Loader from '../pages/Loader'
 import HorizontalCards from './HorizontalCards'
@@ -49,7 +50,7 @@ function PersonDetail() {
     >
 
     <div data-scroll-container style={{
-      backgroundImage: `url(${asset.back})`,
+      backgroundImage: `url(${back})`,
       backgroundSize: 'cover', // or 'contain', depending on your needs
       backgroundPosition: 'center', // or adjust as needed
     }}
