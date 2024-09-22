@@ -14,23 +14,23 @@ import Trailer from "../components/Trailer";
 
 const router = createBrowserRouter([
     {path : '/deploy-vite/' , element: <Home/> },
-    {path:'/trending' , element : <Trending/>},
-    {path:'/popular' , element : <Popular/>},
-    {path:'/movies' , element : <Movies/> ,},
-    {path:'/tv-show' , element : <TvShow/>},
-    {path:'/people' , element : <People/>},
-    {path: "/movie/:id" , element :<MovieDetail/>,
+    {path:'/deploy-vite/trending' , element : <Trending/>},
+    {path:'/deploy-vite/popular' , element : <Popular/>},
+    {path:'/deploy-vite/movies' , element : <Movies/> ,},
+    {path:'/deploy-vite/tv-show' , element : <TvShow/>},
+    {path:'/deploy-vite/people' , element : <People/>},
+    {path: "/deploy-vite/movie/:id" , element :<MovieDetail/>,
         children:[
             {path:"videos" , element:<Trailer/>}
         ]
     },
-    {path: "/tv/:id" , element :<TvDetails/> ,
+    {path: "/deploy-vite/tv/:id" , element :<TvDetails/> ,
         children:[
             {path:"videos" , element:<Trailer/>}
         ]
     },
-    {path: "/person/:id" , element :<PersonDetail/>},
-    {path: "/not-found" , element :<NotFound/>},
+    {path: "/deploy-vite/person/:id" , element :<PersonDetail/>},
+    {path: "/deploy-vite/not-found" , element :<NotFound/>},
     {path: "*" , element :<NotFound/>},
 
 

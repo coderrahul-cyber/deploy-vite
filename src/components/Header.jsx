@@ -14,7 +14,7 @@ function Header({ data }) {
       <h1 className='text-5xl font-semibold text-white'>{data.name || data.title || data.original_name || data.original_title}</h1>
       <p className='mt-3 w-[50%]'>
         {data.overview ? `${data.overview.slice(0,200)}` : "No description Found"}...
-        <Link to={`/${data.media_type}/${data.id}`} className='text-blue-300'>more </Link></p>
+        <Link to={`/deploy-vite/${data.media_type}/${data.id}`} className='text-blue-300'>more </Link></p>
       <p className='text-white   '>
       <i className="text-yellow-400 ri-megaphone-fill mx-2"></i>{data.release_date || 'NA'}
       <i className="text-yellow-400 ri-album-fill mx-2"></i>{data.media_type || 'NA'}

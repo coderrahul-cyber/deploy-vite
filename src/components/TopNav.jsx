@@ -37,7 +37,7 @@ function TopNav() {
             <div className=" glass z-50  absolute w-[50%] flex flex-col gap-3  mt-4  max-h-72 top-[90%]  overflow-auto ">
 
            {search.map((item ,index)=>(
-             <Link to={`/${item.media_type}/${item.id}`} key={index} className='flex border-y-[1px] mx-2  peer/h  py-2 hover:shadow-md transition-all ease-in hover:shadow-zinc-400 border-zinc-300 rounded-xl  px-2  items-center gap-4 peer/l'>
+             <Link to={`/deploy-vite/${item.media_type}/${item.id}`} key={index} className='flex border-y-[1px] mx-2  peer/h  py-2 hover:shadow-md transition-all ease-in hover:shadow-zinc-400 border-zinc-300 rounded-xl  px-2  items-center gap-4 peer/l'>
              <img className='w-12 h-12  object-scale-down   ' src={ item.poster_path || item.profile_path ? `https://image.tmdb.org/t/p/original/${item.poster_path || item.profile_path}` : 'https://www.shutterstock.com/shutterstock/photos/2059817444/display_1500/stock-vector-no-image-available-photo-coming-soon-illustration-vector-2059817444.jpg'} alt="no image" />
              <span className='capitalize     '>{item.name || item.title || item.original_title}</span>
              </Link>

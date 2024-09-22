@@ -55,7 +55,7 @@ function MovieDetail() {
         <a target='_blank' href={info.externalId.wikidata_id ? `https://www.wikidata.org/wiki/${info.externalId.wikidata_id}` : "/not-found"}><i className="ri-global-fill pr-2"></i>WIkIPEDIA</a>
         <a target='_blank' href={info.details.homepage ? info.details.homepage : "/not-found"}><i className="ri-external-link-fill pr-2"></i>OFFICIAL LINKS</a>
         <a target='_blank' href={info.externalId.imdb_id ? `https://www.imdb.com/title/${info.externalId.imdb_id}` : "/not-found"}><i className="ri-error-warning-line pr-2"></i>IMDB</a>
-        <Link to="/">
+        <Link to="/deploy-vite">
           <img className='w-6 cursor-pointer' src={asset.logo} alt="" />
         </Link>
       </nav>
@@ -90,7 +90,7 @@ function MovieDetail() {
         <p className='param text-nowrap overflow-x-scroll mb-4 w-[50%] px-3 '><span className='text-sm  mr-1 uppercase font-semibold'>Movie Translation : </span>{info.translations.join(" , ")}</p>
           <div className="mt-4 px-3">
 
-        <Link className='px-3  rounded-lg bg-blue-400 py-2' to={`/movie/${info.details.id}/videos`}>Play Trailer</Link>
+        <Link className='px-3  rounded-lg bg-blue-400 py-2' to={`/deploy-vite/movie/${info.details.id}/videos`}>Play Trailer</Link>
           </div>
 
         </div>

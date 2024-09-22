@@ -59,7 +59,7 @@ function PersonDetail() {
         <a target='_blank' href={info.externalId.instagram_id ? `https://www.instagram.com/${info.externalId.instagram_id}/` : "/not-found"}><i className="ri-instagram-line pr-2"></i>Instagram</a>
         <a target='_blank' href={info.externalId.facebook_id ? `https://www.facebook.com/${info.externalId.facebook_id}` : "/not-found"}><i className="ri-facebook-circle-fill pr-2"></i>FaceBook</a>
         <a target='_blank' href={info.externalId.imdb_id ? `https://www.imdb.com/name/${info.externalId.imdb_id}/` : "/not-found"}><i className="ri-error-warning-line pr-2"></i>IMDB</a>
-        <Link to="/">
+        <Link to="/deploy-vite/">
           <img className='w-6 cursor-pointer ' src={asset.logo} alt="" />
         </Link>
       </nav>

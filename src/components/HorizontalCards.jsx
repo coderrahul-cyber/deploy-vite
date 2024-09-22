@@ -12,7 +12,7 @@ function HorizontalCards({ data }) {
             <div className="w-[100%] grid grid-cols-6  gap-y-5 ">
 
                 {data && data.map((item, index) => (
-                    <Link to={item.season_number == undefined ? `/${item.media_type }/${item.id}` : pathname} key={index} className={`min-w-[15%] bg-zinc-900 h-max overflow-hidden pb-2 rounded-lg    mr-5 `}>
+                    <Link to={item.season_number == undefined ? `/deploy-vite/${item.media_type }/${item.id}` : pathname} key={index} className={`min-w-[15%] bg-zinc-900 h-max overflow-hidden pb-2 rounded-lg    mr-5 `}>
                         <img className='h-32 w-full  object-cover object-center' src={`https://image.tmdb.org/t/p/original/${item.backdrop_path || item.profile_path || item.poster_path } ` || 'https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ='} alt="" />
                         <h1 className='text-xl text-center py-2  line-clamp-1 font-semibold  text-white'>{item.name || item.title || item.original_name || item.original_title}</h1>
                         {item.season_number == undefined || !item.air_date ?  
