@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main
-
+env:
+   VITE_AUTHORIZATION:${{secrets.VITE_AUTHORIZATION}}
 jobs:
   build:
     name: Build
