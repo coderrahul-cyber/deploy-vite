@@ -23,6 +23,8 @@ jobs:
 
       - name: Build project
         run: npm run build
+        env:
+          VITE_AUTHORIZATION: ${{ secrets.VITE_AUTHORIZATION }}
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
