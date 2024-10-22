@@ -50,7 +50,7 @@ function Popular() {
       },[category])
   return popular.length > 0 ? (
 
-    <div  className='w-screen px-10 pt-3 min-h-screen bg-[#1F1E24]'>
+    <div  className='w-screen px-5 pt-3 min-h-screen bg-[#1F1E24]'>
         <div className="w-full    flex  gap-2 items-center">
         <i onClick={()=> navigate(-1)} className="ri-arrow-left-fill cursor-pointer text-xl text-zinc-400 hover:text-white"></i>
             <h1 className='text-4xl tracking-wide font-shadd  text-zinc-300 '>Popular</h1>

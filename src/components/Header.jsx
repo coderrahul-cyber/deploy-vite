@@ -13,8 +13,8 @@ function Header({ data }) {
       backgroundSize: 'cover',
       backgroundPosition: "center"
 
-    }} className='w-[100vw] sm:h-[60vh] h-[40dvh] flex flex-col justify-end items-start px-4 pb-2 sm:p-[4vmax]'>
-      <h1 className='sm:text-5xl text-4xl   font-semibold font-mono text-white'>{data.name || data.title || data.original_name || data.original_title}</h1>
+    }} className='w-[100vw] sm:h-[60vh] h-[50dvh] overflow-hidden mt-3 sm:mt-0 flex flex-col justify-end items-start px-4 pb-2 sm:p-[4vmax]'>
+      <h1 className='sm:text-5xl text-2xl   font-semibold font-mono text-white'>{data.name || data.title || data.original_name || data.original_title}</h1>
       <div className='mt-3 sm:w-[50%] '>
         <p className='line-clamp-4  text-sm sm:text-lg sm:line-clamp-none '>
         {data.overview ? `${data.overview.slice(0,200)}` : "No description Found"}...
