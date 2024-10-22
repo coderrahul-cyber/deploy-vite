@@ -3,11 +3,10 @@ import { Link, useLocation } from 'react-router-dom'
 
 
 HorizontalCards.propTypes ={
-    data : PropTypes.array ,
+    data : PropTypes.any ,
 }
 function HorizontalCards({ data }) {
     const {pathname} = useLocation()
-    console.log(pathname)
     return data.length !== 0 ? (
         <div className='w-full   p-4 h-max '>
             
@@ -33,7 +32,7 @@ function HorizontalCards({ data }) {
 
             </div>
         </div>
-    ):<div><h1 className='w-full h-full text-3xl font-trah text-center '>Not Recommendation</h1></div>
+    ):<div><h1 className='w-full h-full text-3xl font-trah text-center mt-20'>Not Recommendation</h1></div>
 }
 
 export default HorizontalCards

@@ -29,7 +29,7 @@ function SideBar() {
       {!isMenu && windowSize <= 430 && (  <i className="ri-menu-line absolute -right-20 top-5   text-2xl cursor-pointer  mr-[18%] ml-2 md:hidden " onClick={toggleMenu}></i>)}
         <h1 className='flex gap-4 text-2xl    font-fon  py-2      items-center'>
              <img className='w-5 ' src={asset.logo} alt="" />
-            Pratice Project             <i onClick={toggleMenu} className="ri-close-line ml-[20%] text-xl sm:hidden"></i>
+            Movie-hub            <i onClick={toggleMenu} className="ri-close-line ml-[20%] text-xl sm:hidden"></i>
             </h1>
 
         <nav className='flex flex-col gap-5   border-b-[1px] pb-10 rounded-md  text-lg'>
@@ -48,9 +48,8 @@ function SideBar() {
         <footer className='flex flex-col gap-5    text-lg'>
         <h1 className='title mt-10  text-center   '>Web-Site Information</h1>
             <hr className='h-[1px] border-zinc-500  ' />
-            <Link className='navv duration-500 '>
-            <i className="ri-information-line mr-2 text-[2vmax] sm:text-xl"></i><span className='text-[2vmax] sm:text-xl'>About</span></Link>
-            <Link className='navv duration-500 text-[2vmax] sm:text-xl'><i className="ri-contacts-line mr-2"></i><span className='text-[2vmax] sm:text-xl'>Contact</span></Link> 
+            <p className='font-mono leading-4 text-sm line-clamp-3'>This is the pratice project made by the <span className='underline font-semibold tracking-wide text-[16px]'>Rahul Samant</span> who is a full stack developer for more info click the below</p>
+            <a href='' target='#' className='navv duration-500 text-[4vmax] sm:text-xl'><i className="ri-contacts-line mr-2 text-xl"></i><span className='text-[2vmax] sm:text-xl'>Contact</span></a> 
         </footer>
       
     </div>

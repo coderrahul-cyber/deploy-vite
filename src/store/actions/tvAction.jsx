@@ -3,7 +3,7 @@ import axios from "../../utils/axios";
 import { loadtv } from "../Reducers/tvSlice";
 
 
-export const asyncloadtv = (id)=>async (dispatch , getState)=>{
+export const asyncloadtv = (id)=>async (dispatch )=>{
     try {
         const details = await axios.get(`/tv/${id}`);//gives the deatil of the tv
         const externalId =await axios.get(`/tv/${id}/external_ids`);// provide external resouces of tv
@@ -17,7 +17,7 @@ export const asyncloadtv = (id)=>async (dispatch , getState)=>{
             externalId : externalId.data,
             recommendation : recommendation.data.results,
             similar:similar.data.results,
-            translations : translations.data.translations.map((item ,index)=> item.english_name) ,
+            translations : translations.data.translations.map((item)=> item.english_name) ,
             videos : videos.data.results.find( m => m.type === "Trailer") ,
             watchProvider :watchProvider.data.results.IN || watchProvider.data.results.US
         }

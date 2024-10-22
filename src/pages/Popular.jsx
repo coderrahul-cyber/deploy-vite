@@ -1,4 +1,3 @@
-import React, { useRef } from 'react'
 import { useState  , useEffect } from 'react';
 import axios from '../utils/axios';
 import TopNav from '../components/TopNav';
@@ -8,7 +7,6 @@ import { BeatLoader } from 'react-spinners';
 import Card from '../components/Card';
 import { useNavigate } from 'react-router-dom';
 import Loader from './Loader';
-import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 
 
 function Popular() {
@@ -17,8 +15,6 @@ function Popular() {
     const [popular , setPopular] = useState([]);
     const [page ,setpage]=useState(1);
     const [hasmore , sethasmore] = useState(true);
-
-
     const getPopular = async () => {
       try {
         // Fetch both pages in parallel to save time
@@ -26,16 +22,10 @@ function Popular() {
           await axios.get(`/${category}/popular?page=${page}`),
           await axios.get(`/${category}/popular?page=${page+1}`)
           ]);
-    
-        // Log the responses
-    
         // Combine the results from both pages
         const data = [...response1.data.results, ...response2.data.results];
-        console.log(data)
-    
         // Update the state with the combined results
         setPopular((prevState) => [...prevState, ...data]);
-    
         // Check if there are more pages to fetch
         const totalPages = response1.data.total_pages; // Assuming both responses have the same total_pages
         if (page + 1 >= totalPages) {
@@ -48,61 +38,23 @@ function Popular() {
         sethasmore(false); // Stop further loading if there's an error
       }
     };
-
-    // const getPopular= async ()=>{
-    //     try {
-    
-    //         const {data} = await axios.get(`/${category}/popular?page=${page}`)
-
-    //         console.log(data)
-    //       setPopular((prevState)=> [...prevState , ...data.results])      
-    //       if(page >= data.total_pages){
-    //         sethasmore(false);
-    //       }else{
-    //         setpage(page +1)
-    //       }
-    //     } catch (error) {
-    //       console.log(error)  
-    //       sethasmore(false)
-    //     }
-    //   }
-
-    const containerRef = useRef();
-
       useEffect(()=>{
         setPopular([])
         setpage(1);
         sethasmore(true);
         getPopular()
-        console.log(popular)
-
         return ()=>{
           setPopular([])
         }
 
       },[category])
-
   return popular.length > 0 ? (
-    <LocomotiveScrollProvider
-    options={{
-      smooth: true,
-      lerp: 0.1, // Lower the value for smoother scrolling (default is 0.1)
-      multiplier: 1, // Adjust the scroll speed (slightly faster)
-      smoothMobile: true, // Enable smooth scrolling on mobile as well
-      inertia: 1, // Controls the scroll inertia (closer to 1 is smoother)
-      getSpeed: true, // Enables tracking the scroll speed
-      getDirection: true, // Enables tracking the scroll direction
-      touchMultiplier: 2.5, // Higher value gives more touch response on mobile
-    }}
-    watch={[]}
-    containerRef={containerRef}
-   >
 
-    <div data-scroll-container className='w-screen px-10 pt-3 min-h-screen bg-[#1F1E24]'>
+    <div  className='w-screen px-10 pt-3 min-h-screen bg-[#1F1E24]'>
         <div className="w-full    flex  gap-2 items-center">
         <i onClick={()=> navigate(-1)} className="ri-arrow-left-fill cursor-pointer text-xl text-zinc-400 hover:text-white"></i>
             <h1 className='text-4xl tracking-wide font-shadd  text-zinc-300 '>Popular</h1>
-            <TopNav/>
+            {window.innerWidth <= 430 ?<></> :<TopNav/>}
             <DropDown title="Category" option={["movie" , "tv" ]} func={(e)=> setCategory(e.target.value)}/>
         </div>
         <hr className='border-zinc-500 rounded-lg h-1 my-2 mx-auto   bg-zinc-500' />
@@ -117,9 +69,7 @@ function Popular() {
 
         </InfiniteScroll>
       
-    </div>
-   </LocomotiveScrollProvider>
-  
+    </div>  
   ):<Loader/>
 }
 

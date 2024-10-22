@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import  { useState, useEffect } from 'react';
 import axios from '../utils/axios';
 import TopNav from '../components/TopNav';
 import DropDown from '../components/DropDown';
@@ -6,7 +6,6 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { BeatLoader } from 'react-spinners';
 import Card from '../components/Card';
 import { useNavigate } from 'react-router-dom';
-import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import Loader from './Loader';
 
 function TvShow() {
@@ -23,16 +22,10 @@ function TvShow() {
             axios.get(`/tv/${category}?page=${page}`),
             axios.get(`/tv/${category}?page=${page + 1}`)
           ]);
-      
-          // Log the responses
-      
           // Combine the results from both pages
-          const data = [...response1.data.results, ...response2.data.results];
-          console.log(data)
-      
+          const data = [...response1.data.results, ...response2.data.results];      
           // Update the state with the combined results
           setShow((prevState) => [...prevState, ...data]);
-      
           // Check if there are more pages to fetch
           const totalPages = response1.data.total_pages; // Assuming both responses have the same total_pages
           if (page + 1 >= totalPages) {
@@ -67,8 +60,6 @@ function TvShow() {
     //     }
     // };
 
-    const containerRef = useRef();
-
     useEffect(() => {
         setShow([]);
         setPage(1);
@@ -77,26 +68,13 @@ function TvShow() {
     }, [category]);
 
     return tvshow.length > 0 ? (
-        <LocomotiveScrollProvider
-    options={{
-      smooth: true,
-      lerp: 0.1, // Lower the value for smoother scrolling (default is 0.1)
-      multiplier: 1, // Adjust the scroll speed (slightly faster)
-      smoothMobile: true, // Enable smooth scrolling on mobile as well
-      inertia: 1, // Controls the scroll inertia (closer to 1 is smoother)
-      getSpeed: true, // Enables tracking the scroll speed
-      getDirection: true, // Enables tracking the scroll direction
-      touchMultiplier: 2.5, // Higher value gives more touch response on mobile
-    }}
-    watch={[]}
-    containerRef={containerRef}
-  >
 
-        <div data-scroll-container className='w-screen px-10 pt-3 min-h-screen bg-[#1F1E24]'>
+
+        <div  className='w-screen px-10 pt-3 min-h-screen bg-[#1F1E24]'>
             <div className="w-full flex gap-2 items-center">
                 <i onClick={() => navigate(-1)} className="ri-arrow-left-fill cursor-pointer text-xl text-zinc-400 hover:text-white"></i>
                 <h1 className='text-4xl tracking-wide font-shadd text-zinc-300'>Tv-Show</h1>
-                <TopNav />
+                {window.innerWidth <= 430 ?<></> :<TopNav/>}
                 <DropDown title="Category" option={["on_the_air", "popular", "top_rated", "airing_today"]} func={(e) => setCategory(e.target.value)} />
             </div>
             <hr className='border-zinc-500 rounded-lg h-1 my-2 mx-auto bg-zinc-500' />
@@ -109,7 +87,6 @@ function TvShow() {
                 <Card data={tvshow} title="tv" />
             </InfiniteScroll>
         </div>
-  </LocomotiveScrollProvider>
     ) : <Loader />;
 }
 
