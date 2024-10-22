@@ -22,7 +22,6 @@ export const asyncloadmovie = (id)=>async (dispatch , getState)=>{
             watchProvider :watchProvider.data.results.IN || watchProvider.data.results.US
         }
         dispatch(loadmovie(data));
-        console.log(data)
 
     } catch (error) {
         console.log(error);

@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import  { useState, useEffect, useRef } from 'react';
 import axios from '../utils/axios';
 import TopNav from '../components/TopNav';
-import DropDown from '../components/DropDown';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { BeatLoader } from 'react-spinners';
 import Card from '../components/Card';
@@ -25,9 +24,7 @@ function People() {
             await axios.get(`/person/popular?page=${page}`),
             await axios.get(`/person/popular?page=${page+1}`)
           ]);
-      
-          // Log the responses
-      
+            
           // Combine the results from both pages
           const data = [...response1.data.results, ...response2.data.results];
           console.log(data)

@@ -23,8 +23,6 @@ export const asyncloadperson = (id)=>async (dispatch , getState)=>{
              
         }
         dispatch(loadperson(data));
-        console.log(data)
-
     } catch (error) {
         console.log(error);
         

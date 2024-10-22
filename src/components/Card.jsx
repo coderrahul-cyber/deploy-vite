@@ -1,6 +1,4 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
-import { Link as Scroll } from 'react-scroll'
 import ScrollToTopButton from './ScrllToTop'
 
 function Card({ data , title }) {

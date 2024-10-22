@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import  { useEffect, useRef, useState } from 'react'
 import SideBar from '../components/SideBar'
 import axios from '../utils/axios';
 import TopNav from '../components/TopNav'
@@ -9,10 +9,8 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 
 
 function Home() {
-
   const [wallpaper, sewallpaper] = useState([]);
   const [trending, setTrending] = useState([]);
-  const [category, setCategory] = useState('all');
 
 
   const getHeader = async () => {
@@ -31,7 +29,7 @@ function Home() {
   const getTrending = async () => {
     try {
 
-      const { data } = await axios.get(`trending/${category}/day`)
+      const { data } = await axios.get(`trending/all/day`)
       // console.log(data.results)
       setTrending(data.results)
 
@@ -45,11 +43,11 @@ function Home() {
   useEffect(() => {
     wallpaper && getHeader()
     getTrending()
-  }, [category])
+  },[])
   const containerRef = useRef();
 
 
-  return wallpaper && trending ? (
+  return wallpaper && trending  ? (
     <LocomotiveScrollProvider 
     options={
       {
@@ -68,9 +66,9 @@ function Home() {
     >
 
 
-    <div data-scroll-container  className=' bg-[#1F1E24] text-slate-300 flex  shadow-2xl shadow-white  w-screen h-screen'>
+    <div data-scroll-container  className=' bg-[#1F1E24] text-slate-300 flex   shadow-2xl shadow-white  w-[100vw] h-screen '>
       <SideBar />
-      <div className="w-[80%] h-full overflow-auto overflow-x-hidden">
+      <div className="sm:w-[80%] sm:pl-[20vw]   min-w-[100%] h-full overflow-auto overflow-x-hidden">
         <TopNav />
         <Header data={wallpaper} />
         <h1 className='mt-2 text-3xl px-4 font-fon'>Trending Now..</h1>

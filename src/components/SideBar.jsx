@@ -1,25 +1,47 @@
-import React, { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { asset } from '../assets/assets'
 import { Link } from 'react-router-dom'
-import axios from '../utils/axios'
 
 function SideBar() {
+
+  const [isMenu , setMenu] = useState(false);
+  const [windowSize , setWindowSize] = useState(window.innerWidth);
+
+  useEffect(()=>{
+    const handleresize = ()=> setWindowSize(window.innerWidth);
+    window.addEventListener('resize' , handleresize);
+
+    return()=> window.removeEventListener('resize' , handleresize);
+  },[]);
+
+  const toggleMenu = ()=>{
+    setMenu(!isMenu);
+  }
   
   return (
-    <div className='w-[20%] flex flex-col select-none  h-full border-r-[1px] p-3 rounded-xl   border-zinc-400 '>
+    <div style={{
+      transform: windowSize <= 430 
+      ? (isMenu ? 'translateX(0)' : 'translateX(-100%)') 
+      : 'translateX(0)',
+      transition : 'transform 0.5s ease-in-out',
+      
+    }} className='sm:w-[20%] w-[70%] bg-black absolute z-[999]   sm:flex flex-col select-none  h-full border-r-[1px] p-3 rounded-xl   border-zinc-400 '> 
+      {!isMenu && windowSize <= 430 && (  <i className="ri-menu-line absolute -right-20 top-5   text-2xl cursor-pointer  mr-[18%] ml-2 md:hidden " onClick={toggleMenu}></i>)}
         <h1 className='flex gap-4 text-2xl    font-fon  py-2      items-center'>
              <img className='w-5 ' src={asset.logo} alt="" />
-            Pratice Project</h1>
+            Pratice Project             <i onClick={toggleMenu} className="ri-close-line ml-[20%] text-xl sm:hidden"></i>
+            </h1>
 
         <nav className='flex flex-col gap-5   border-b-[1px] pb-10 rounded-md  text-lg'>
             <h1 className='title mt-10 mb-0  text-center   '>New feeds</h1>
             <hr className='h-[1px] border-zinc-500  ' />
-            <Link to="/deploy-vite/trending" className='navv duration-500 '>
-            <i className="ri-fire-fill mr-2"></i>Trending</Link>
-            <Link to="/deploy-vite/popular" className='navv duration-500'><i className="ri-bard-line mr-2"></i>Popular</Link> 
-            <Link to="/deploy-vite/movies" className='navv duration-500 '><i className="ri-movie-2-line mr-2"></i>Movies</Link>
-            <Link to="/deploy-vite/tv-show" className='navv duration-500'><i className="ri-slideshow-view mr-2"></i>tv Shows</Link>
-            <Link to="/deploy-vite/people" className='navv duration-500 '><i className="ri-team-fill mr-2"></i>People</Link>
+            <Link  to="/deploy-vite/trending" className='navv relative z-50  duration-500 '>
+            <i className="ri-fire-fill mr-2 text-[2vmax] sm:text-xl"></i><span className='text-[2vmax] sm:text-xl'>Trending
+              </span></Link>
+            <Link to="/deploy-vite/popular" className='navv relative z-50 duration-500'><i className="ri-bard-line mr-2 text-[2vmax] sm:text-xl"></i><span className='text-[2vmax] sm:text-xl'>Popular</span></Link> 
+            <Link to="/deploy-vite/movies" className='navv relative z-50 duration-500 '><i className="ri-movie-2-line mr-2 text-[2vmax] sm:text-xl"></i><span className='text-[2vmax] sm:text-xl'>Movies</span></Link>
+            <Link to="/deploy-vite/tv-show" className='navv relative z-50 duration-500'><i className="ri-slideshow-view mr-2 text-[2vmax] sm:text-xl"></i><span className='text-[2vmax] sm:text-xl'>tv</span></Link>
+            <Link to="/deploy-vite/people" className='navv relative z-50 duration-500 '><i className="ri-team-fill mr-2 text-[2vmax] sm:text-xl"></i><span className='text-[2vmax] sm:text-xl'>People</span></Link>
         </nav>
 
 
@@ -27,8 +49,8 @@ function SideBar() {
         <h1 className='title mt-10  text-center   '>Web-Site Information</h1>
             <hr className='h-[1px] border-zinc-500  ' />
             <Link className='navv duration-500 '>
-            <i className="ri-information-line mr-2"></i>About</Link>
-            <Link className='navv duration-500'><i className="ri-contacts-line mr-2"></i>Contact</Link> 
+            <i className="ri-information-line mr-2 text-[2vmax] sm:text-xl"></i><span className='text-[2vmax] sm:text-xl'>About</span></Link>
+            <Link className='navv duration-500 text-[2vmax] sm:text-xl'><i className="ri-contacts-line mr-2"></i><span className='text-[2vmax] sm:text-xl'>Contact</span></Link> 
         </footer>
       
     </div>

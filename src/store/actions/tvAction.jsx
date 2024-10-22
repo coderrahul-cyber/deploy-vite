@@ -22,7 +22,6 @@ export const asyncloadtv = (id)=>async (dispatch , getState)=>{
             watchProvider :watchProvider.data.results.IN || watchProvider.data.results.US
         }
         dispatch(loadtv(data));
-        console.log(data)
 
     } catch (error) {
         console.log(error);

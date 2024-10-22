@@ -26,7 +26,6 @@ function PersonDetail() {
 
     dispatch(asyncloadperson(params.id))
     return () => {
-      console.log("Unmount")
       dispatch(removeperson())
     }
 
