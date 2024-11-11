@@ -24,7 +24,7 @@ function Info({info}) {
 </h1>
 </a>
 <hr className='group-hover:w-[70%] hree ' />
-<p className='sm:text-sm text-xs font-mono  line-clamp-6 text-balance py-2  px-4 w-[25vh]    sm:w-[55%] '>{info.details.overview ? info.details.overview.slice(0,400) : 'No Description Found'}... </p>
+<p className='sm:text-sm text-xs font-mono  line-clamp-6 text-balance py-2  px-4 w-[25ddvw]    sm:w-[55%] '>{info.details.overview ? info.details.overview.slice(0,400) : 'No Description Found'}... </p>
 <div className="genera px-3 ">
   <h1 className='font-semibold '>Genre</h1>
   <ul>

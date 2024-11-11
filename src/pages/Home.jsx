@@ -42,9 +42,9 @@ function Home() {
 
 
   return wallpaper && trending  ? (
-    <div   className=' bg-[#100c08] text-slate-200 flex   shadow-2xl shadow-white  w-[100vw] h-screen '>
+    <div   className=' bg-[#100c08] text-slate-200 flex   shadow-2xl shadow-white  w-[100dvw] h-screen '>
       <SideBar />
-      <div className="sm:w-[80%] sm:pl-[20vw]   min-w-[100%] h-full overflow-auto overflow-x-hidden">
+      <div className="sm:w-[80%] sm:pl-[20dvw]   min-w-[100%] h-full overflow-auto overflow-x-hidden">
         <TopNav />
         <Header data={wallpaper} />
         <h1 className='mt-2 text-3xl px-4 font-fon'>Trending Now..</h1>

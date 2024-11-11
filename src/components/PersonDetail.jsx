@@ -26,7 +26,7 @@ function PersonDetail() {
       backgroundSize: 'cover', 
       backgroundPosition: 'center', 
     }}
-      className={` py-4 px-1 bg-[#1F1E24]  min-w-[100vw] font-chunky   min-h-[150vh]`}>
+      className={` py-4 px-1 bg-[#1F1E24]  min-w-[100dvw] font-chunky   min-h-[150ddvw]`}>
       <nav className='w-full bg-white/20 border-[1px] text-xl text-[#faf3dd]  px-2 py-4 rounded-lg sm:grid sm:grid-cols-[0.3fr_2fr_2fr_2fr_1fr]  flex justify-between items-center '>
         <i onClick={() => navigate(-1)} className="ri-arrow-left-fill cursor-pointer text-xl text-zinc-100 hover:text-white"></i>
         <a target='_blank' href={info.externalId.instagram_id ? `https://www.instagram.com/${info.externalId.instagram_id}/` : "/not-found"}><i className="ri-instagram-line sm:pr-2 pl-2 text-2xl "></i><span className='hidden md:inline-block'>Instagram</span></a>
