@@ -13,6 +13,7 @@ function Header({ data }) {
       backgroundSize: 'cover',
       backgroundPosition: "center"
 
+    }} className='w-[100dvw] sm:h-[60dvh] h-[50ddvh] overflow-hidden mt-3 sm:mt-0 flex flex-col justify-end items-start px-4 pb-2 sm:p-[4vmax]'>
     }} className='w-[100dvw] sm:h-[60ddvw] h-[50dddvw] overflow-hidden mt-3 sm:mt-0 flex flex-col justify-end items-start px-4 pb-2 sm:p-[4vmax]'>
       <h1 className='sm:text-5xl text-2xl   font-semibold font-mono text-white'>{data.name || data.title || data.original_name || data.original_title}</h1>
       <div className='mt-3 sm:w-[50%] '>

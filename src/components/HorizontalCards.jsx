@@ -14,7 +14,7 @@ function HorizontalCards({ data }) {
 
                 {data &&  data.map((item, index) => (
                     <Link to={item.season_number == undefined ? `/deploy-vite/${item.media_type }/${item.id}` : pathname} key={index} className={`w-full bg-zinc-900  overflow-hidden pb-2 rounded-lg     mr-5 `}>
-                        <img className='sm:h-48 h-[30ddvw] w-full  object-cover object-center' src={`https://image.tmdb.org/t/p/original/${item.backdrop_path || item.profile_path || item.poster_path } `} alt="" />
+                        <img className='sm:h-48 h-[30dvh] w-full  object-cover object-center' src={`https://image.tmdb.org/t/p/original/${item.backdrop_path || item.profile_path || item.poster_path } `} alt="" />
                         <h1 className='text-xl text-center py-2  line-clamp-1 font-semibold  text-white'>{item.name || item.title || item.original_name || item.original_title}</h1>
                         {item.season_number == undefined || !item.air_date ?  
                         <>

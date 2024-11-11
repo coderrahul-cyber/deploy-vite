@@ -15,7 +15,11 @@ function Trailer() {
 
   return ytv != undefined ? (
     <div className='absolute bg-[rgba(0,0,0,0.8)]   w-full h-full '>
+<<<<<<< HEAD
         <div className="w-[100dvw] h-[100ddvw] relative flex items-center justify-center">
+=======
+        <div className="w-[100dvw] h-[100dvh] relative flex items-center justify-center">
+>>>>>>> b932c11d5bcf6ea4be43837466e6c7d2a1abaa83
 
                 <i onClick={() => navigate(-1)} className="ri-close-large-line cursor-pointer absolute sm:top-36 sm:right-[20%] top-[30%]  right-2 text-xl sm:text-3xl text-zinc-300 hover:text-white"></i>
       <ReactPlayer   controls={true}  height={window.innerWidth <= 430 ?300:600} width={1080} url={`https://www.youtube.com/watch?v=${ytv.key}`} />
