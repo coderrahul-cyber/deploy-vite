@@ -29,7 +29,7 @@ function SideBar() {
       {!isMenu && windowSize <= 430 && (  <i className="ri-menu-line absolute -right-20 top-5   text-2xl cursor-pointer  mr-[18%] ml-2 md:hidden " onClick={toggleMenu}></i>)}
         <h1 className='flex gap-4 text-2xl    font-fon  py-2      items-center'>
              <img className='w-5 ' src={asset.logo} alt="" />
-            Movie-hub            <i onClick={toggleMenu} className="ri-close-line ml-[20%] text-xl sm:hidden"></i>
+            MovieVerse           <i onClick={toggleMenu} className="ri-close-line ml-[20%] text-xl sm:hidden"></i>
             </h1>
 
         <nav className='flex flex-col gap-5   border-b-[1px] pb-10 rounded-md  text-lg'>
